@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Покупка продуктов в лавке"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="img/meat.ico"/>
+    <title>Продуктовая лавка</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this cite.</noscript>
+    <script src="./index.js" ></script>
+    <main class="shop-main">
+       <div class="shop-grid">
+            <div class="shop-main-top">
+                <div class="shop-cupboard-hat"></div>
+                <div class="shop-cupboard-flags-area" >
+                    <div class="shop-cupboard-flags shop-cupboard-flags-colored" >
+                        <div class="shop-cupboard-flag"></div>
+                        <div class="shop-cupboard-flag"></div>
+                        <div class="shop-cupboard-flag"></div>
+                        <div class="shop-cupboard-flag"></div>
+                        <div class="shop-cupboard-flag"></div>
+                        <div class="shop-cupboard-flag"></div>
+                        <div class="shop-cupboard-flag"></div>
+                        <div class="shop-cupboard-flag"></div>
+                    </div>
+                    <div class="shop-cupboard-top-shadow">
+                        <div class="shop-cupboard-flags shop-cupboard-flags-shadow" >
+                            <div class="shop-cupboard-flag"></div>
+                            <div class="shop-cupboard-flag"></div>
+                            <div class="shop-cupboard-flag"></div>
+                            <div class="shop-cupboard-flag"></div>
+                            <div class="shop-cupboard-flag"></div>
+                            <div class="shop-cupboard-flag"></div>
+                            <div class="shop-cupboard-flag"></div>
+                            <div class="shop-cupboard-flag"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shop-main-middle">
+                <div class="shop-cupboard-back" ></div>
+                <div class="shop-cupboard-shelves" >
+                    <div class="shop-shelf-wrapper">
+                        <div class="shop-shelf shop-small-shelf">
+                            <img src="img/cupcake_chocolate.svg" alt='chocolate cupcake' 
+                                class="shop-product-on-shelf shop-product-cupcake-chocolate" />
+                            <img src="img/cupcake_cherry.svg" alt='cherry cupcake' 
+                                class="shop-product-on-shelf shop-product-cupcake-cherry" />
+                            <img src="img/caramel_jar.svg" alt='jar with candies' 
+                                class="shop-product-on-shelf shop-product-caramel-jar" />
+                        </div>
+                        <div class="shop-shelf-shadow"></div>
+                    </div>
+                    <div class="shop-shelf-wrapper">
+                        <div class="shop-shelf shop-small-shelf">
+                            <img src="img/donut_pink.svg" alt='pink donut' 
+                                class="shop-product-on-shelf shop-product-donut-1" />
+                            <img src="img/donut_caramel.svg" alt='caramel donut' 
+                                class="shop-product-on-shelf shop-product-donut-2" />
+                            <img src="img/donut_green.svg" alt='green donut' 
+                                class="shop-product-on-shelf shop-product-donut-3" />
+                            <img src="img/donut_violet.svg" alt='violet donut' 
+                                class="shop-product-on-shelf shop-product-donut-4" />
+                        </div>
+                        <div class="shop-shelf-shadow"></div>
+                    </div>
+                    <div class="shop-shelf-wrapper">
+                        <div class="shop-shelf shop-big-shelf">
+                            <img src="img/cake_opera.svg" alt='opera cake' 
+                                class="shop-product-on-shelf shop-product-cake-1" />
+                            <img src="img/cake_red.svg" alt='red cake' 
+                                class="shop-product-on-shelf shop-product-cake-2" />
+                            <img src="img/cake_limon.svg" alt='limon cake' 
+                                class="shop-product-on-shelf shop-product-cake-3" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shop-main-bottom">
+                <div class="shop-cupboard-bottom" ></div>
+                <div class="shop-cart">
+                    <div role="img" aria-label='cart' class="shop-cart-img"></div>
+                    <div class="shop-cart-drop-area"></div>
+                    <button type='button' class="shop-buy-button" onclick="onBuy()">Оплатить корзину</button>
+                </div>
+            </div>
+       </div>
+    </main>
+  </body>
+</html>

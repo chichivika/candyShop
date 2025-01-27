@@ -1,0 +1,396 @@
+:root {
+    --cupboard-margin: 8px;
+    --cupboard-bottom-margin: 6px;
+    --cupboard-back-color: #75614D;
+    --cupboard-back-shadow-color: #4a4541;
+    --cupboard-wood-color: #ed9a48;
+    --cupboard-shelf-top: #ccb683;
+    --cupboard-chelf-front: #ffe5a9;
+    --flag-color-one: #5bee98;
+    --flag-color-two: #ff90d3;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.dnd-mode {
+    cursor: pointer;
+}
+
+.shop-main {
+    padding: 20px 40px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template: 1fr / 1fr;
+    align-items: center;
+}
+
+.shop-grid {
+    width: 100%;
+    height: 90%;
+    min-height: 500px;
+    max-height: 600px;
+    display: grid;
+    justify-content: center;
+    position: relative;
+    grid-template-columns: minmax(220px, 320px);
+    grid-template-rows: 61px 1fr 230px;
+}
+
+.shop-main-top {
+    grid-row: 1 / span 1;
+    position: relative;
+}
+
+.shop-main-middle {
+    grid-row: 2 / span 1;
+    position: relative;
+}
+
+.shop-main-bottom {
+    grid-row: 3 / span 1;
+    position: relative;
+}
+
+.shop-cupboard-hat{
+    width: 100%;
+    height: 12px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: var(--cupboard-wood-color);
+}
+
+.shop-cupboard-flags-area {
+    position: relative;
+}
+
+.shop-cupboard-flags {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    z-index: 4;
+}
+.shop-cupboard-flag {
+    flex: 1;
+    height: 29px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.shop-cupboard-flags-colored .shop-cupboard-flag:nth-child(2n + 1) {
+    animation: flag-one-to-two 15s infinite;
+}
+.shop-cupboard-flags-colored .shop-cupboard-flag:nth-child(2n) {
+    animation: flag-two-to-one 15s infinite;
+}
+.shop-cupboard-top-shadow{
+    height: 50px;
+    overflow: hidden;
+    margin: 0px var(--cupboard-margin);
+    box-sizing: border-box;
+    background-color: var(--cupboard-back-color);
+}
+
+.shop-cupboard-top-shadow .shop-cupboard-flags{
+    position: relative;
+    z-index: 1;
+    top: 10px;
+    width: calc( 100% + var(--cupboard-margin) + var(--cupboard-margin));
+}
+.shop-cupboard-top-shadow .shop-cupboard-flag{
+    background-color: var(--cupboard-back-shadow-color);
+    height: 39px;
+}
+
+.shop-cupboard-bottom {
+    width: calc( 100% - var(--cupboard-bottom-margin) - var(--cupboard-bottom-margin) );
+    height: 91px;
+    margin: auto;
+    background-color: var(--cupboard-wood-color);
+    box-shadow: 0px 20px inset #8e5c2a;
+}
+
+.shop-cupboard-back {
+    height: 100%;
+    background-color: var(--cupboard-back-color);
+    margin: 0px var(--cupboard-margin);
+    box-sizing: border-box;
+}
+.shop-cupboard-shelves {
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    position: absolute;
+    display: grid;
+    grid-template-rows: 1fr [first-shelf-top] 2fr [second-shelf-top] 3fr;
+    grid-template-columns: 1fr;
+}
+
+.shop-shelf-wrapper {
+    position: absolute;
+    width: 100%;
+}
+
+.shop-shelf {
+    height: 0px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    position: relative;
+}
+
+.shop-small-shelf {
+    border-bottom: 10px solid var(--cupboard-shelf-top);
+    box-shadow: 0px 8px var(--cupboard-chelf-front);
+}
+
+.shop-shelf-wrapper:first-child{
+    grid-row: first-shelf-top;
+}
+
+.shop-shelf-wrapper:nth-child(2){
+    grid-row: second-shelf-top;
+}
+
+.shop-shelf-wrapper:last-child {
+    bottom: 0px;
+}
+
+.shop-big-shelf {
+    border-bottom: 21px solid var(--cupboard-shelf-top);
+    box-shadow: 0px 20px var(--cupboard-chelf-front);
+    bottom: 20px;
+}
+
+.shop-shelf-shadow {
+    height: 25px;
+    background-color: var(--cupboard-back-shadow-color);
+    position: relative;
+    margin: 0px var(--cupboard-margin);
+    top: 8px;
+    box-sizing: border-box;
+}
+
+.shop-cart {
+    position: absolute;
+    bottom: 0px;
+    left: calc( 50% - 130px );
+}
+
+.shop-cart > .shop-cart-img {
+    position: relative;
+    z-index: 30;
+    width: 280px;
+    height: 200px;
+    background: url('img/cart.svg') no-repeat;
+    background-size: contain;
+}
+
+.shop-cart > .shop-cart-drop-area {
+    position: absolute;
+    width: 100%;
+    height: 180px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 5;
+}
+
+.dnd-mode .shop-cart > .shop-cart-drop-area {
+    z-index: 30;
+}
+
+.not-touched-img {
+    touch-action: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+}
+.not-selected-img {
+    -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none;
+}
+
+.shop-product-on-shelf {
+    z-index: 12;
+    position: absolute;
+    cursor: pointer;
+    bottom: -5px;
+}
+.shop-product-dragged {
+    position: absolute;
+    z-index: 40;
+    transition: 0.05s, transform 1s;
+}
+
+.shop-product-in-cart {
+    position: absolute;
+    z-index: 10;
+    transition: 0s, transform 1s;
+}
+.shop-product-on-shelf.shop-product-attention {
+    animation: product-attention 0.5s linear 1;
+}
+
+.shop-product-on-shelf.shop-product-cupcake-chocolate {
+    left: 10px;
+}
+
+.shop-product-on-shelf.shop-product-cupcake-cherry {
+    left: 65px;
+}
+
+.shop-product-on-shelf.shop-product-caramel-jar {
+    right: 10px;
+}
+
+.shop-product-on-shelf.shop-product-donut-1 {
+    left: 10px;
+}
+.shop-product-on-shelf.shop-product-donut-2 {
+    left: 28%;
+}
+.shop-product-on-shelf.shop-product-donut-3 {
+    right: 28%;
+}
+.shop-product-on-shelf.shop-product-donut-4 {
+    right: 10px;
+}
+
+.shop-product-on-shelf.shop-product-cake-1 {
+    left: 10px;
+    top: -30px;
+}
+.shop-product-on-shelf.shop-product-cake-2 {
+    left: calc( 50% - 35px);
+    top: -33px;
+}
+.shop-product-on-shelf.shop-product-cake-3 {
+    right: 10px;
+    top: -35px;
+}
+
+.shop-buy-button {
+    z-index: 45;
+    width: 174px;
+    height: 56px;
+    background-color: #FCE000;
+    border-radius: 16px;
+    border: none;
+    color: #21201F;
+    font-weight: bold;
+    position: absolute;
+    bottom: 16px;
+    left: calc( 50% - 87px );
+    display: none;
+    cursor: pointer;
+
+    animation: button-appearing 0.7s linear 1;
+
+    transition: background-color 0.5s;
+}
+.shop-buy-button:hover {
+    background-color: #F1C40F;
+}
+.shop-buy-button.shop-buy-button-pulse {
+    animation: button-pulse 4s linear infinite;
+}
+
+@keyframes flag-one-to-two{
+    0% {
+        background-color: var(--flag-color-one);
+    }
+    25% {
+        background-color: var(--flag-color-one);
+    }
+    35% {
+        background-color: var(--flag-color-two);
+    }
+    65% {
+        background-color: var(--flag-color-two);
+    }
+    75% {
+        background-color: var(--flag-color-one);
+    }
+    100% {
+        background-color: var(--flag-color-one);
+    }
+}
+
+@keyframes flag-two-to-one{
+    0% {
+        background-color: var(--flag-color-two);
+    }
+    30% {
+        background-color: var(--flag-color-two);
+    }
+    35% {
+        background-color: var(--flag-color-one);
+    }
+    65% {
+        background-color: var(--flag-color-one);
+    }
+    80% {
+        background-color: var(--flag-color-two);
+    }
+    100% {
+        background-color: var(--flag-color-two);
+    }
+}
+
+@keyframes button-appearing{
+    0% {
+        transform: scale(0);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes button-pulse{
+    0% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1);
+    }
+    80% {
+        transform: scale(1.2);
+    }
+    85% {
+        transform: scale(1.1);
+    }
+    90% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes product-attention{
+    0% {
+        transform: rotate(0deg);
+    }
+    15% {
+        transform: rotate(-15deg);
+    }
+    45% {
+        transform: rotate(15deg);
+    }
+    75% {
+        transform: rotate(-15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
