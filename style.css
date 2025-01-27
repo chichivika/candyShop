@@ -185,7 +185,7 @@ body.dnd-mode {
 .shop-cart > .shop-cart-img {
     position: relative;
     z-index: 30;
-    width: 280px;
+    width: 260px;
     height: 200px;
     background: url('img/cart.svg') no-repeat;
     background-size: contain;
@@ -280,10 +280,10 @@ body.dnd-mode {
     z-index: 45;
     width: 174px;
     height: 56px;
-    background-color: #FCE000;
+    background-color: #3eff8e;
     border-radius: 16px;
     border: none;
-    color: #21201F;
+    color: #525151;
     font-weight: bold;
     position: absolute;
     bottom: 16px;
@@ -296,7 +296,7 @@ body.dnd-mode {
     transition: background-color 0.5s;
 }
 .shop-buy-button:hover {
-    background-color: #F1C40F;
+    background-color: #32d476;
 }
 .shop-buy-button.shop-buy-button-pulse {
     animation: button-pulse 4s linear infinite;

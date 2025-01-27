@@ -66,7 +66,7 @@ function showBuyButton() {
 }
 
 function onBuy() {
-    window.location.replace('https://lavka.yandex.ru/');
+    window.location.reload();
 }
 
 // === ATTENTION TIMER ===
